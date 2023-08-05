@@ -10,8 +10,6 @@ import pcm.springpcm.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
-@Service //서비스 안에 @Component 어노테이션이 있음
-//@Component
 public class MemberService {
 
     private final MemberRepository memberRepository;
