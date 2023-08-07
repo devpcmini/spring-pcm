@@ -1,4 +1,4 @@
-package pcm.springpcm.web;
+package pcm.springpcm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
