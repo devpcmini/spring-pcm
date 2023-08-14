@@ -1,12 +1,10 @@
 package pcm.springpcm;
 
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pcm.springpcm.repository.JdbcMemberRepository;
-import pcm.springpcm.repository.JdbcTemplateMemberRepository;
-import pcm.springpcm.repository.MemberRepository;
-import pcm.springpcm.repository.MemoryMemberRepository;
+import pcm.springpcm.repository.*;
 import pcm.springpcm.service.MemberService;
 
 import javax.sql.DataSource;
@@ -14,11 +12,18 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+//    private DataSource dataSource;
+
+//    @Autowired
+//    public SpringConfig(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
+
+    private EntityManager em;
 
     @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em){
+        this.em = em;
     }
 
     //스프링 빈에 올려놓기
@@ -31,6 +36,7 @@ public class SpringConfig {
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }

@@ -3,6 +3,7 @@ package pcm.springpcm.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pcm.springpcm.domain.Member;
 import pcm.springpcm.repository.MemberRepository;
 import pcm.springpcm.repository.MemoryMemberRepository;
@@ -10,6 +11,7 @@ import pcm.springpcm.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
