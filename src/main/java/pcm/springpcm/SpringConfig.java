@@ -2,6 +2,7 @@ package pcm.springpcm;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import pcm.springpcm.aop.TimeTraceAop;
 import pcm.springpcm.repository.*;
 import pcm.springpcm.service.MemberService;
 
@@ -27,6 +28,11 @@ public class SpringConfig {
     public SpringConfig(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
+
+//    @Bean
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
+//    }
 
     //스프링 빈에 올려놓기
     @Bean
